@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('pass');
             $table->string('nombre');
             $table->char('rol', 1);
+           // $table->bigInteger('tel', 16)->unsigned();
+            $table->string('email');
             $table->timestamps();
         });
     }

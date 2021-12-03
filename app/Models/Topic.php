@@ -9,7 +9,7 @@ class Topic extends Model
 {
     
     protected $fillable = [
-        'id', 'tema',
+        'id', 'tema', 'descr'
     ];
 
     protected $hidden = [

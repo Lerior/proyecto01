@@ -27,7 +27,10 @@ class UserController extends Controller
         'user'=>'required', 
         'nombre'=>'required',
         'pass'=>'required',
-        'rol'=>'required']);
+        'rol'=>'required',
+        'edad'=>'required',
+        'tel'=>'required',
+        'email'=>'required']);
         $datos = new User;
         $datos->pass=Hash::make($req->pass);
         $result = $datos->fill($req->all())->save(); 
@@ -42,7 +45,10 @@ class UserController extends Controller
             'user'=>'filled', 
             'nombre'=>'filled',
             'pass'=>'filled',
-            'rol'=>'filled']);
+            'rol'=>'filled',
+            'edad'=>'filled',
+            'tel'=>'filled',
+            'email'=>'filled']);
 
         $datos = User::find($user);
        // $datos->pass=$req->pass;

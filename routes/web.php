@@ -22,11 +22,11 @@ $router->get('/', function () use ($router) {
     $router->get('/login/{user}/{pass}', 'AuthController@login');
     
 //});
-
+$router->post('/usuario', 'UserController@create');
 $router->group(['middleware'=>['auth']], function() use($router){
     $router->get('/usuario', 'UserController@index');
     $router->get('/usuario/{user}', 'UserController@get');
-    $router->post('/usuario', 'UserController@create');
+    
     $router->put('/usuario/{user}', 'UserController@update');
     $router->delete('/usuario/{user}', 'UserController@destroy');
 
