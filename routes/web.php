@@ -22,7 +22,16 @@ $router->get('/', function () use ($router) {
     $router->get('/login/{user}/{pass}', 'AuthController@login');
     
 //});
+$router->get('/asistencia', 'AsistenciaController@index');
+$router->get('/asistencia/{topic_id}', 'AsistenciaController@get');
+$router->get('/asistenciaU/{user_id}', 'AsistenciaController@getU');
+$router->post('/asistencia', 'AsistenciaController@create');
+$router->delete('/asistencia/{user_id}/{topic_id}', 'AsistenciaController@destroy');
+//$router->get('/asistencia/{user_id}', 'AsistenciaController@getA');
+
+
 $router->post('/usuario', 'UserController@create');
+$router->put('/topic/{id}', 'TopicController@update');
 $router->group(['middleware'=>['auth']], function() use($router){
     $router->get('/usuario', 'UserController@index');
     $router->get('/usuario/{user}', 'UserController@get');
@@ -33,7 +42,6 @@ $router->group(['middleware'=>['auth']], function() use($router){
     $router->get('/topic', 'TopicController@index');
     $router->get('/topic/{id}', 'TopicController@get');
     $router->post('/topic', 'TopicController@create');
-    $router->put('/topic/{id}', 'TopicController@update');
     $router->delete('/topic/{id}', 'TopicController@destroy');
 
     $router->get('/post', 'PostController@index');

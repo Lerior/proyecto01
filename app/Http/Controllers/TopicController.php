@@ -35,11 +35,12 @@ class TopicController extends Controller
 
     public function update(Request $req, $id){
         $this->validate($req, [
+            'id'=>'filled',
             'tema'=>'filled',
             'descr'=>'filled']);
 
         $datos = Topic::find($id);
-       // if(!$datos) return response()->json(['status'=>'failed'], 404);
+        if(!$datos) return response()->json(['status'=>'failed'], 404);
         $result = $datos->fill($req->all())->save();
         if($result)
             return response()->json(['status'=>'success'], 200);
